@@ -1,0 +1,46 @@
+@import 'src/variables';
+
+.root label {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.old_check_box {
+  display: none;
+}
+
+.new_check_box {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  background-color: $increaseRateBG;
+  border: 1px solid $increaseRateFont;
+  border-radius: 3px;
+
+  svg {
+    fill: $increaseRateFont;
+    position: absolute;
+    top: -4px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.new_check_box.hide svg {
+  display: none;
+}
+
+.new_check_box.disabled {
+  background-color: #e8eaed;
+  border: 1px solid #a9a9a9;
+
+  svg {
+    fill: #a9a9a9;
+  }
+}

@@ -1,24 +1,8 @@
-@import "src/variables";
-
-.cover {
-  &.visible{
-    display: flex ;
-  }
-  display: none;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #00000022;
-}
+@import 'src/variables';
 
 .root {
-  z-index: 1;
-  top: 40%;
-  left: 50%;
+  width: 100%;
+  height: auto;
   font-family: inherit;
   color: inherit;
   display: flex;
@@ -26,7 +10,7 @@
   align-items: center;
   justify-content: space-around;
 
-  .input{
+  .input {
     width: 85%;
     height: 36px;
     border-radius: 8px;
@@ -43,4 +27,3 @@
     }
   }
 }
-

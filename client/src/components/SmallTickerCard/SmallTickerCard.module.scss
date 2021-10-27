@@ -1,0 +1,135 @@
+@import 'src/variables';
+
+.root {
+  margin: 4px;
+  min-height: 46px;
+  min-width: calc(100% / 5 - 8px);
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 4px 6px;
+  border: 1px solid $greyBorder;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  &:hover {
+    background-color: $defWhiteHover;
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  &.inc_rate {
+    color: $increaseRateFont;
+    background-color: $increaseRateBG;
+  }
+  transition-duration: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  min-width: 32px;
+  height: 32px;
+  color: $decreaseRateFont;
+  border-radius: 6px;
+  background-color: $decreaseRateBG;
+  overflow: hidden;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  .name {
+    color: #202124;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+  }
+  .price {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1rem;
+    color: #3c4043;
+  }
+}
+
+.changes {
+  overflow: hidden;
+  display: flex;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  flex-direction: column;
+  text-align: right;
+  letter-spacing: 0.025em;
+  color: $decreaseRateFont;
+  justify-content: center;
+  transition-duration: 0.5s;
+  &.inc_rate {
+    color: $increaseRateFont;
+  }
+
+  .pct_changes {
+    font-weight: 500;
+  }
+}
+
+.animated {
+  animation: shiftUp ease-in-out 0.4s;
+}
+
+@keyframes shiftUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  49% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  51% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .root {
+    min-width: calc(100% / 4 - 8px);
+  }
+}
+
+@media (max-width: 860px) {
+  .root {
+    min-width: calc(100% / 3 - 8px);
+  }
+}
+
+@media (max-width: 650px) {
+  .root {
+    min-width: calc(100% / 2 - 8px);
+  }
+}
+
+@media (max-width: 470px) {
+  .root {
+    min-width: calc(100% - 8px);
+  }
+}

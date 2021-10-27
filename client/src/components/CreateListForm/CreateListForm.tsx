@@ -1,36 +1,62 @@
-import React, {useState} from 'react';
-import Button from "../ui/Button/Button";
-import s from './CreateListPopup.module.scss'
-import {useDispatch} from "react-redux";
-import {addNewListAction} from "../../store/actions/actions";
+import React, { useCallback, useEffect, useState } from 'react';
+import Button from '../ui/Button/Button';
+import s from './CreateListForm.module.scss';
+import { AddNewListAction } from '../../store/actions/actions';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 
+interface IProp {
+  modalHandler: () => void;
+}
 
-const CreateListPopup: React.FC = () => {
-  const [value, setValue] = useState('')
-  const dispatch = useDispatch()
-  const okHandler = () => {
-    dispatch(addNewListAction(value));
+const CreateListForm: React.FC<IProp> = ({ modalHandler }) => {
+  const [value, setValue] = useState('');
+  const dispatch = useAppDispatch();
+
+  const escHandler = useCallback((event) => {
+    if (event.keyCode === 27) {
+      cancelHandler(event);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('keydown', escHandler);
+    return () => {
+      document.removeEventListener('keydown', escHandler);
+    };
+  }, [escHandler]);
+
+  const cancelHandler = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     setValue('');
-  }
-
-  const cancelHandler = () => {
+    modalHandler();
+  };
+  const okHandler = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    dispatch(AddNewListAction(value));
     setValue('');
-
-  }
+    modalHandler();
+  };
 
   return (
-    <div onClick={cancelHandler}>
-      <div className={s.root} onClick={e => e.stopPropagation()}>
-        <h2>Создание нового списка</h2>
-        <input className={s.input} type="text" value={value} onChange={(e) => setValue(e.target.value)}
-               placeholder="Название нового списка"/>
-        <div className={s.controls}>
-          <Button color='red' onClick={cancelHandler}>Отмена</Button>
-          <Button disabled={!value} onClick={okHandler}>Создать</Button>
-        </div>
+    <form className={s.root} onSubmit={okHandler}>
+      <h2>Создание нового списка</h2>
+      <input
+        className={s.input}
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Название нового списка"
+      />
+      <div className={s.controls}>
+        <Button type="reset" color="red" onClick={cancelHandler}>
+          Отмена
+        </Button>
+        <Button type="submit" disabled={!value}>
+          Создать
+        </Button>
       </div>
-    </div>
+    </form>
   );
 };
 
-export default CreateListPopup;
+export default CreateListForm;

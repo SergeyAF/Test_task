@@ -1,0 +1,29 @@
+@import 'src/variables';
+
+.modal {
+  display: none;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000044;
+
+  .content {
+    display: flex;
+    font-family: inherit;
+    color: inherit;
+    border: 1px solid $greenBorder;
+    border-radius: 8px;
+    background-color: white;
+    min-width: 360px;
+    min-height: 180px;
+    padding: 8px 16px;
+  }
+
+  &.visible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

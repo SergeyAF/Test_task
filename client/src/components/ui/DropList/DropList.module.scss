@@ -1,0 +1,53 @@
+@import 'src/variables';
+
+.root {
+  position: absolute;
+  visibility: hidden;
+  right: 0;
+  top: 48px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid $greyBorder;
+  width: max-content;
+  min-width: 125px;
+  list-style: none;
+  box-shadow: 0px 8px 10px 1px #00000020, 0px 3px 14px 2px #0000001d,
+    0px 5px 5px -3px #00000033;
+
+  &.visible {
+    visibility: visible;
+  }
+
+  ul {
+    width: 100%;
+  }
+
+  li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    min-height: 36px;
+    cursor: pointer;
+    &:hover {
+      background-color: $defWhiteHover;
+      border-bottom: 1px solid $hoveredBorderGrey;
+      border-top: 1px solid $hoveredBorderGrey;
+    }
+    &:first-child:hover {
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+      border-top: none;
+    }
+    &:last-child {
+      border-top: 1px solid $greyBorder;
+      font-weight: 500;
+      &:hover {
+        border-top: 1px solid $hoveredBorderGrey;
+        border-bottom: none;
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+    }
+  }
+}

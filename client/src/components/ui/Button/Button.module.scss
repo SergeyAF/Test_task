@@ -1,0 +1,49 @@
+@import 'src/variables';
+
+.btn {
+  color: inherit;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  background-color: #fff;
+
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+
+  &:focus {
+    outline: none;
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: inherit;
+    border: 1px solid transparent;
+    &:hover {
+      color: inherit;
+      border: 1px solid transparent;
+      background-color: inherit;
+    }
+  }
+}
+
+.green {
+  border: 1px solid $greenBorder;
+  &:hover {
+    background-color: $increaseRateBG;
+    color: $increaseRateFont;
+    border: 1px solid #13733399;
+  }
+}
+
+.red {
+  border: 1px solid #c5221f66;
+  &:hover {
+    background-color: $decreaseRateBG;
+    color: $decreaseRateFont;
+    border: 1px solid #c5221f99;
+  }
+}

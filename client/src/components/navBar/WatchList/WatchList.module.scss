@@ -1,21 +1,32 @@
-@import "src/variables";
+@import 'src/variables';
+
 .root {
   width: 100%;
   display: flex;
   justify-content: center;
 }
+
 .wrapper {
   width: 100%;
   height: 48px;
   background-color: white;
   border-radius: 8px;
-  border: 1px solid #dadce0;
+  border: 1px solid $greyBorder;
   align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 4px;
+
+  &.empty {
+    background-color: #f8f9fa;
+    opacity: 0.6;
+  }
+
   &:hover {
+    transition: 0.4s;
     background-color: $defWhiteHover;
+    border-color: $hoveredBorderGrey;
   }
 }

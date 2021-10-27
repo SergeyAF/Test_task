@@ -1,3 +1,5 @@
+@import 'variables';
+
 .App {
   display: grid;
   max-width: 1280px;
@@ -6,37 +8,65 @@
   grid-template-columns: 2fr 3fr 3fr;
   grid-template-rows: minmax(120px, auto) 2fr;
   grid-template-areas:
-            "navBar dash dash"
-            "navBar content content"
+    'navBar dash dash'
+    'navBar content content';
 }
 
+.navBar {
+  grid-area: navBar;
+  background-color: $defWhiteHover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px;
+  border-right: 1px solid $greyBorder;
+
+  .nav_header {
+    border-bottom: 1px solid $greyBorder;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .ticker_list {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid $greyBorder;
+    margin-bottom: 4px;
+    transition: 0.4s;
+    &:hover {
+      background-color: $defWhiteHover;
+      border-color: $hoveredBorderGrey;
+    }
+    input {
+      margin-right: 8px;
+    }
+  }
+}
+
+.content {
+  position: relative;
+  grid-area: content;
+  background-color: white;
+  padding: 48px 12px;
+}
+
+.dashBar {
+  margin: 4px;
+  background-color: white;
+  min-height: 46px;
+  min-width: calc(100% / 5 - 8px);
+}
 .dash {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
   grid-area: dash;
-  background-color: blue;
-}
-
-.navBar {
-  grid-area: navBar;
-  background-color: violet;
-}
-
-.content {
-  grid-area: content;
-  background-color: white;
-}
-
-.footer {
-  grid-area: footer;
-}
-
-.dashBar {
-  background-color: white;
-  min-height: 100px;
-  width: calc(100%/3);
+  background-color: $defWhiteHover;
 }
