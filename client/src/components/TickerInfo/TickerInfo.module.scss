@@ -50,13 +50,22 @@
     padding: 0 8px;
     height: 32px;
     align-items: center;
+    &.inc_rate {
+      color: $increaseRateFont;
+    }
   }
 
   .pct_wrapper {
     border-radius: 8px;
     background-color: $decreaseRateBG;
+    &.inc_rate {
+      color: $increaseRateFont;
+      background-color: $increaseRateBG;
+    }
   }
 }
+
+
 
 .btn_wrapper {
   position: relative;

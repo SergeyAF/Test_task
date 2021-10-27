@@ -33,7 +33,9 @@ const SmallTickerCard: React.FC<IProps & IPropWithClassName> = ({
 
   return (
     <div className={cn(s.root, className)} onClick={setElementHandler}>
-      <div className={cn(s.icon, data.change > 0 ? s.inc_rate : null)}>˄</div>
+      <div className={cn(s.icon, data.change > 0 ? s.inc_rate : null)}>
+        {data.change > 0 ? '˄' : '˅'}
+      </div>
       <div className={s.wrapper}>
         <div className={s.info}>
           <div className={s.name}>{data.ticker}</div>

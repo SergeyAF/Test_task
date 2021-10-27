@@ -11,6 +11,7 @@ import { RootState } from '../../store';
 import { IWatchList } from '../../store/reducers/watchListReducer';
 import { RouteComponentProps } from 'react-router-dom';
 import { ChangeWatchlistDataAction } from '../../store/actions/actions';
+import cn from "classnames";
 
 type TParams = { id: string };
 
@@ -107,11 +108,12 @@ const TickerInfo: React.FC<RouteComponentProps<TParams>> = ({
       </div>
       <div className={s.main_info_wrapper}>
         <div className={s.price}>{currentElement.price}</div>
-        <div className={s.pct_wrapper}>
-          <div className="icon">˄</div>
-          <div className="pct_change">{currentElement.change_percent}</div>
+        <div className={cn(s.pct_wrapper, currentElement.change > 0 ? s.inc_rate : null)}>
+          <div className="icon">
+            {currentElement.change > 0 ? '˄' : '˅'}</div>
+          <div className="pct_change">{currentElement.change_percent} %</div>
         </div>
-        <div className={s.abs_change}>{currentElement.change}</div>
+        <div className={cn(s.abs_change,currentElement.change > 0 ? s.inc_rate : null)}>{currentElement.change}</div>
       </div>
       <div className={s.add_info}>
         {currentElement.last_trade_time} · {currentElement.exchange} · Отказ от
