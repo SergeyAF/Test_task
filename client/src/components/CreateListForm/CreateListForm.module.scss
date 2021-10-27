@@ -1,0 +1,46 @@
+@import "src/variables";
+
+.cover {
+  &.visible{
+    display: flex ;
+  }
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000022;
+}
+
+.root {
+  z-index: 1;
+  top: 40%;
+  left: 50%;
+  font-family: inherit;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  .input{
+    width: 85%;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid $greenBorder;
+    padding: 8px;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .controls {
+    align-self: end;
+    button:first-child {
+      margin-right: 8px;
+    }
+  }
+}
+

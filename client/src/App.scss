@@ -1,0 +1,42 @@
+.App {
+  display: grid;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  grid-template-columns: 2fr 3fr 3fr;
+  grid-template-rows: minmax(120px, auto) 2fr;
+  grid-template-areas:
+            "navBar dash dash"
+            "navBar content content"
+}
+
+.dash {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  grid-area: dash;
+  background-color: blue;
+}
+
+.navBar {
+  grid-area: navBar;
+  background-color: violet;
+}
+
+.content {
+  grid-area: content;
+  background-color: white;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.dashBar {
+  background-color: white;
+  min-height: 100px;
+  width: calc(100%/3);
+}
