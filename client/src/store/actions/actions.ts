@@ -12,8 +12,8 @@ export const AddNewListAction = (listName: string) => {
 
 export const CreateAllTickersList = (list: string[]) => {
   return {
-    type: 'WatchList/GET_ALL_TICKERS_LIST',
-    payload: { id: 1, name: 'All Tickers', data: list },
+    type: 'WatchList/CREATE_ALL_TICKERS_LIST',
+    payload: list,
   } as const;
 };
 
@@ -70,15 +70,17 @@ export const SetFetchingIntervalAction = (interval: number) => {
 
 //---------------  Common Reducer ---------------
 
-export const SetIsLoadingAction = () => {
+export const SetConnectionAction = (flag: boolean) => {
   return {
-    type: 'Common/SET_IsLOADING',
+    type: 'Common/SET_CONNECTION',
+    payload: flag,
   } as const;
 };
 
-export const ResetIsLoadingAction = () => {
+export const ChangeIsLoadingAction = (flag: boolean) => {
   return {
-    type: 'Common/RESET_IsLOADING',
+    type: 'Common/CHANGE_IsLOADING',
+    payload: flag,
   } as const;
 };
 
