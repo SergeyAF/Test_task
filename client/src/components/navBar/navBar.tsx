@@ -23,7 +23,7 @@ const NavBar: React.FC<IPropWithClassName> = ({ className = null }) => {
       socket.emit('FILTER_TICKERS', { type: 'sub', data: ticker });
     }
   };
-  console.log('Render naw')
+  console.log('Render naw');
   return (
     <div className={cn(s.root, className)}>
       <div className="nav_header">Список отображаемых акций</div>
@@ -44,4 +44,4 @@ const NavBar: React.FC<IPropWithClassName> = ({ className = null }) => {
   );
 };
 
-export default NavBar;
+export default React.memo(NavBar);

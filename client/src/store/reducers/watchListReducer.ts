@@ -24,8 +24,14 @@ export default function watchListReducer(
         ...state,
         list: [...state.list, { id: Date.now(), name: action.payload, data: [] }],
       };
-    case 'WatchList/GET_ALL_TICKERS_LIST':
-      return { ...state, list: [action.payload, ...state.list] };
+    case 'WatchList/CREATE_ALL_TICKERS_LIST':
+      return {
+        ...state,
+        list: [
+          { id: 1, name: 'All Tickers', data: action.payload },
+          ...state.list.filter((el) => el.id !== 1),
+        ],
+      };
     case 'WatchList/ADD_TO_WATCHLIST':
       return {
         ...state,
