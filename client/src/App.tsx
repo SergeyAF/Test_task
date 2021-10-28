@@ -19,7 +19,7 @@ const App: React.FC = () => {
     return () => {
       socket.disconnect();
     };
-  }, []);
+  }, [error]);
 
   if (error) return <div>Error: {error}</div>;
 

@@ -19,6 +19,7 @@ export const thunkGetData = (): AppThunk => async (dispatch: AppDispatch, getSta
       dispatch(SetErrorAction(`Loading Error: ${err.message}`))
       setTimeout(() => {
         socket.connect();
+        dispatch(SetIsLoadingAction());
       }, 1000);
     })
 
